@@ -28,3 +28,4 @@ class CustomerFoods(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
 
 
+

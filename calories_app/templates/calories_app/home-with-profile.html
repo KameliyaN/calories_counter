@@ -26,62 +26,53 @@
 
 </h4>
 
-<form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select food</label>
-   <select name="food" class="i-can-add-my-own-attrs-now" id="id_food">
+
+<label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select food</label>
+<form class="form-inline" method="POST" action="">
+    {% csrf_token %}
+    <select name="food" class="i-can-add-my-own-attrs-now" id="id_food">
         {% for _, name in form.food.field.choices %}
-        <option value="{{ id }}">{{ name }}</option>
+            <option value="{{ id }}">{{ name }}</option>
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+
+
+            </div>
+
         {% endfor %}
+
+
     </select>
-  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+    <input type="submit" value="Select">
+    {#    <div class="custom-control custom-checkbox">#}
+    {#        <input type="checkbox" class="custom-control-input" id="customCheck1">#}
+    {#        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>#}
+    {#    </div>#}
+    {#    <div class="button">#}
+    {##}
+    {#        <button class="btn btn-success" type="submit">Register</button>#}
+    {#    </div>#}
 
 
-  </div>
-
-  <button type="submit" class="btn btn-success">Submit</button>
 </form>
-{#<div class="card">#}
-{##}
-{##}
-{#    <div class="card-body">#}
-{##}
-{##}
-{#        <form method="POST" action="">#}
-{#            {% csrf_token %}#}
-{##}
-{##}
-{##}
-{#            <div class="md-form">#}
-{#                <i class="fa fa-user prefix grey-text"></i>#}
-{#                <input type="text" id="materialFormCardNameEx" class="form-control">#}
-{#                <label for="materialFormCardNameEx" class="font-weight-light">First name</label>#}
-{#            </div>#}
-{##}
-{##}
-{#            <div class="md-form">#}
-{#                <i class="fa fa-envelope prefix grey-text"></i>#}
-{#                <input type="email" id="materialFormCardEmailEx" class="form-control">#}
-{#                <label for="materialFormCardEmailEx" class="font-weight-light">Last name</label>#}
-{#            </div>#}
-{##}
-{##}
-{#            <div class="md-form">#}
-{#                <i class="fa fa-exclamation-triangle prefix grey-text"></i>#}
-{#                <input type="email" id="materialFormCardConfirmEx" class="form-control">#}
-{#                <label for="materialFormCardConfirmEx" class="font-weight-light">kg</label>#}
-{#            </div>#}
-{##}
-{##}
-{#            <div class="text-center py-4 mt-3">#}
-{#                <button class="btn btn-success" type="submit">Register</button>#}
-{#            </div>#}
-{#        </form>#}
-{##}
+{#    <div class="card" style="width: 20rem;">#}
+{#        <img class="card-img-top" src="https://thumbs.dreamstime.com/z/cucumber-white-8624699.jpg" alt="Card image cap">#}
+{#        <div class="card-body">#}
+{#            <h5 class="card-title">{{ form.food.name }}</h5>#}
+{#            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the#}
+{#                card's content.</p>#}
+{#        </div>#}
+{#        <ul class="list-group list-group-flush">#}
+{#            <li class="list-group-item">Cras justo odio</li>#}
+{#            <li class="list-group-item">Dapibus ac facilisis in</li>#}
+{#            <li class="list-group-item">Vestibulum at eros</li>#}
+{#        </ul>#}
+{#        <div class="card-body">#}
+{#            <a href="#" class="card-link">Card link</a>#}
+{#            <a href="#" class="card-link">Another link</a>#}
+{#        </div>#}
 {##}
 {#    </div>#}
-{##}
-{##}
-{#</div>#}
+
 
 </body>
 </html>

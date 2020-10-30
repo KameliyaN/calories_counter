@@ -24,5 +24,7 @@ class Foods(models.Model):
 
 
 class CustomerFoods(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
     food = models.ManyToManyField(Foods)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
+
+

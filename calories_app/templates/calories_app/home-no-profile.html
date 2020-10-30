@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calories counter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <nav class="navbar navbar-dark bg-success">
+        <a class="navbar-brand" href="#" >
+            Welcome to your personal calories counter!
+        </a>
+        <a class="navbar-brand" href="#">
+            About
+        </a>
+    </nav>
+
+    <img style="width:35em" src="{% static 'images/style.jpg' %}" class="rounded float-left" alt="">
+
+</head>
+<body>
+<h4>
+    <blockquote class="blockquote text-center">
+        <p class="mb-0" >Submit your data in the form below!</p>
+
+    </blockquote>
+
+</h4>
+
+
+
+<div class="card">
+
+
+    <div class="card-body">
+
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+
+
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                <input type="text" id="materialFormCardNameEx" class="form-control">
+                <label for="materialFormCardNameEx" class="font-weight-light">First name</label>
+            </div>
+
+
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input type="email" id="materialFormCardEmailEx" class="form-control">
+                <label for="materialFormCardEmailEx" class="font-weight-light">Last name</label>
+            </div>
+
+
+            <div class="md-form">
+                <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                <input type="email" id="materialFormCardConfirmEx" class="form-control">
+                <label for="materialFormCardConfirmEx" class="font-weight-light">kg</label>
+            </div>
+
+
+            <div class="text-center py-4 mt-3">
+                <button class="btn btn-success" type="submit">Register</button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

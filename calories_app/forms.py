@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import Select
 
 from calories_app.models import Customer, CustomerFoods
 
@@ -10,6 +11,11 @@ class CustomerForm(forms.ModelForm):
 
 
 class CustomerFoodsForm(forms.ModelForm):
+    # select_foods=forms.ChoiceField(choices=fo.name for fo in CustomerFoods.food.all())
     class Meta:
         model = CustomerFoods
         fields = ['food']
+        exclude = ['customer']
+        widgets = {
+            'food': Select(attrs={'class': 'select'})
+        }

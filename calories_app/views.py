@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from calories_app.forms import CustomerForm, CustomerFoodsForm
-from calories_app.models import Customer, CustomerFoods
+from calories_app.models import Customer, CustomerFoods, Foods
 
 
 def index(request):
@@ -10,15 +10,12 @@ def index(request):
         if request.method == 'POST':
             form = CustomerFoodsForm(request.POST)
 
-            # if form.is_valid():
-            #     form.customer = form.save(commit=False)
-            #     form.customer.save()
-            answer = form.fields['food']
-            print(answer)
-            return redirect('customer food')
+            if form.is_valid():
+                form.cust = form.save()
+                form.cust.save()
+                return redirect('customer-food')
 
-            # return render(request, 'calories_app/home-with-profile.html', {'form': form})
-
+            return render(request, 'calories_app/home-with-profile.html', {'form': form})
         form = CustomerFoodsForm()
         return render(request, 'calories_app/home-with-profile.html', {'form': form})
     else:

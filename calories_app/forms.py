@@ -14,8 +14,6 @@ class CustomerFoodsForm(forms.ModelForm):
     # select_foods=forms.ChoiceField(choices=fo.name for fo in CustomerFoods.food.all())
     class Meta:
         model = CustomerFoods
-        fields = ['food']
-        exclude = ['customer']
-        widgets = {
-            'food': Select(attrs={'class': 'select'})
-        }
+        fields = ['name']
+        exclude = ['customer','user']
+

@@ -24,8 +24,6 @@ class Foods(models.Model):
 
 
 class CustomerFoods(models.Model):
-    food = models.ManyToManyField(Foods)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
-
-
-
+    name = models.CharField(max_length=50, null=True)
+    cust = Customer.objects.first().id if Customer.objects.first() else 1
+    user = models.ForeignKey(to=Customer, on_delete=models.CASCADE, default=cust)

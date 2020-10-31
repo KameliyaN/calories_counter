@@ -27,7 +27,8 @@
                     <div class="box">
                     <h5><em>{{ food.name }}</em></h5>
                     <a href="{% url 'details' food.id %}" class="btn btn-primary">See details</a>
-{#                    <a class="navbar-brand" href="#">#}
+                    <a href="{% url 'delete' food.id %}" class="btn btn-danger">Delete</a>
+
 
 
                 {% endfor %}

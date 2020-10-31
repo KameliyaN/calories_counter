@@ -5,6 +5,8 @@ from calories_app import views
 urlpatterns = [
     path('', views.index, name='index_page'),
     path('foods/', views.customer_foods, name='customer-food'),
-    path('details/<int:pk>/', views.details, name='details')
+    path('details/<int:pk>/', views.details, name='details'),
+    path('delete/<int:pk>/', views.delete, name='delete'),
+
 
 ]

@@ -41,3 +41,10 @@ def details(request, pk):
     }
 
     return render(request, 'calories_app/details.html', context)
+
+
+def delete(request, pk):
+    customer = Customer.objects.first()
+    food_obj = customer.customerfoods_set.get(pk=pk)
+    food_obj.delete()
+    return redirect('customer-food')

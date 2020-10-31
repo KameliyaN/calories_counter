@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My daily foods list</title>
+    <meta charset="UTF-8">
+    <title>Calories counter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <nav class="navbar navbar-dark bg-success">
+        <a class="navbar-brand" href="{% url 'index_page' %}">
+            Calories Tracker
+        </a>
+        <a class="navbar-brand" href="{% url 'index_page' %}">
+            About
+        </a>
+    </nav>
+
+    <img style="width:35em" src="{% static 'images/fon_two.jpg' %}" class="rounded float-left" alt="">
+</head>
+<body>
+{% if food %}
+    <div class="container">
+    <div class="d-flex">
+
+    <div class="d-inline p-2 w-50">
+
+        <h5><u>Name:</u> {{ food.name }}</h5>
+        <h5><u>Calories:</u> {{ food.calories }}</h5>
+        <h5><u>Carbohydrate:</u> {{ food.carbohydrate }}</h5>
+        <h5><u>Fats:</u> {{ food.fats }}</h5>
+        <h5><u>Protein:</u> {{ food.protein }}</h5>
+        <a href="{% url 'customer-food' %}" class="btn btn-primary">Back</a>
+    </div>
+{% else %}
+    <h3>Sorry but we don`t have info for this food!</h3>
+{% endif %}
+
+</div>
+</body>
+</html>

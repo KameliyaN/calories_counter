@@ -6,7 +6,7 @@
     <title>Calories counter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <nav class="navbar navbar-dark bg-success">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'index_page' %}">
             Calories Tracker
         </a>
         <a class="navbar-brand" href="#">
@@ -31,7 +31,7 @@
     {% csrf_token %}
     {{ form }}
 
-     <button class="btn btn-success" type="submit">Submit form</button>
+     <button class="btn btn-success" type="submit">Enter food</button>
 {#    <input type="submit" value="Select">#}
 
 

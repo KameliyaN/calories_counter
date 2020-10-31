@@ -15,5 +15,5 @@ class CustomerFoodsForm(forms.ModelForm):
     class Meta:
         model = CustomerFoods
         fields = ['name']
-        exclude = ['customer','user']
+        exclude = ['cust','user']
 

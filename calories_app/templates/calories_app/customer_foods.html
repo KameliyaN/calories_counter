@@ -1,10 +1,47 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>I am title</title>
+    <title>My daily foods list</title>
+    <meta charset="UTF-8">
+    <title>Calories counter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <nav class="navbar navbar-dark bg-success">
+        <a class="navbar-brand" href="{% url 'index_page' %}">
+            Calories Tracker
+        </a>
+        <a class="navbar-brand" href="#">
+            About
+        </a>
+    </nav>
+
+    <img style="width:35em" src="{% static 'images/fon_two.jpg' %}" class="rounded float-left" alt="">
 </head>
 <body>
+<div class="d-block" style="background-color: #f1e3e3; padding:2%">
+        <form method="post">
+            {% csrf_token %}
+            {% if customer.customerfoods_set.count > 0 %}
+                {% for food in customer.customerfoods_set.all %}
+                    <div class="box">
+                    <h5><em>{{ food.name }}</em></h5>
+                    <a href="{% url 'details' food.id %}" class="btn btn-primary">See details</a>
+{#                    <a class="navbar-brand" href="#">#}
 
+
+                {% endfor %}
+            </div>
+            {% else %}
+                <div class="box">
+                    <h5>There are no foods added for this customer.</h5>
+
+
+
+                </div>
+            {% endif %}
+
+
+        </form>
 </body>
 </html>

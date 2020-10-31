@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -24,4 +25,19 @@ def index(request):
 
 
 def customer_foods(request):
-    return render(request, 'calories_app/customer_foods.html')
+    customer = Customer.objects.first()
+    return render(request, 'calories_app/customer_foods.html', {'customer': customer})
+
+
+def details(request, pk):
+    customer = Customer.objects.first()
+    food_name = customer.customerfoods_set.get(pk=pk).name
+    foods_list = Foods.objects.all()
+    searched_object = [x for x in foods_list if x.name.lower() == food_name.lower()]
+    print(searched_object)
+
+    context = {
+        'food': searched_object[0]
+    }
+
+    return render(request, 'calories_app/details.html', context)
